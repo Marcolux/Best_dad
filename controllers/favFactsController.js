@@ -12,7 +12,7 @@ favFactsController.createFact = async (req,res)=>{
         })
         
         const fact = await user.createFav_fun_fact({
-            content:req.body.content
+            content:req.body.fact
         }) 
         
     
@@ -46,10 +46,13 @@ favFactsController.getFacts = async (req,res)=>{
 favFactsController.deleteFacts = async (req,res)=>{
 
     try{
-        const deleteFacts = await models.fav_fun_fact.destroy({
-            where:{id:req.body.id}
-        })     
-        res.json(deleteFacts)
+        const fact = await models.fav_fun_fact.findOne({
+            where:{id:req.params.id}
+        })   
+        const removeFact = await fact.destroy()
+        
+        res.json(removeFact)
+        console.log(fact)
     }
 
     catch(err){

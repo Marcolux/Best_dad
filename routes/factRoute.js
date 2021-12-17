@@ -4,6 +4,6 @@ const favFactsController = require('../controllers/favFactsController')
 
 factRoutes.post('/:id', favFactsController.createFact)
 factRoutes.get('/:id', favFactsController.getFacts)
-factRoutes.delete('/', favFactsController.deleteFacts)
+factRoutes.delete('/:id', favFactsController.deleteFacts)
 
 module.exports = factRoutes

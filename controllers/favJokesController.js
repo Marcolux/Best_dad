@@ -47,7 +47,7 @@ favJokesController.deleteJoke = async (req,res)=>{
 
     try{
         const deleteJoke = await models.fav_dad_joke.destroy({
-            where:{id:req.body.id}
+            where:{id:req.params.item.id}
         })     
         res.json(deleteJoke)
     }

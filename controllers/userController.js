@@ -8,7 +8,7 @@ userController.createUser = async (req,res) =>{
          name: req.body.name,
          email:req.body.email,
          password:req.body.password,
-         zodiac_sign:req.body.zodiac_sign
+         zodiac_sign:req.body.sign
      })
 
      res.json({newUser})
