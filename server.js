@@ -22,6 +22,9 @@ app.use('/jokes', jokeRoute)
 const quoteRoute = require('./routes/quoteRoute')
 app.use('/quotes',quoteRoute)
 
-app.listen(3001, () => {
-    routesReport.print()
+const PORT = process.env.PORT || 3001
+app.listen(PORT, () => {
+    console.log(`server listening on port ${PORT}`)
+    //see if it works
+    // routesReport.print()
   })
