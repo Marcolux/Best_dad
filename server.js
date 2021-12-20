@@ -1,5 +1,4 @@
 
-//require('dotenv').config()
 const express = require('express')
 const app = express()
 
@@ -22,9 +21,22 @@ app.use('/jokes', jokeRoute)
 const quoteRoute = require('./routes/quoteRoute')
 app.use('/quotes',quoteRoute)
 
-const PORT = process.env.PORT || 3001
-app.listen(PORT, () => {
-    console.log(`server listening on port ${PORT}`)
-    //see if it works
-    // routesReport.print()
+const picRoute = require('./routes/pictRoute')
+app.use('/pic',picRoute)
+
+app.use(express.static(__dirname + '/public'));
+app.use('/uploads', express.static('uploads'));
+
+// Above line would serve all files/folders inside of the 'uploads' directory
+// And make them accessible through http://localhost:yourport/uploads.
+
+app.listen(3001, () => {
+    routesReport.print()
   })
+
+
+//   const PORT = process.env.PORT || 3001
+// app.listen(PORT, () => {
+//     console.log(`server listening on ${PORT}`);
+//     routesReport.print()
+//   })

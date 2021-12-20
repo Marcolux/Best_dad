@@ -52,7 +52,6 @@ favFactsController.deleteFacts = async (req,res)=>{
         const removeFact = await fact.destroy()
         
         res.json(removeFact)
-        console.log(fact)
     }
 
     catch(err){

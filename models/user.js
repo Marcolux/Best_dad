@@ -23,7 +23,8 @@ module.exports = (sequelize, DataTypes) => {
       unique: true
     },
     password: DataTypes.STRING,
-    zodiac_sign: DataTypes.STRING
+    zodiac_sign: DataTypes.STRING,
+    image: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'user',

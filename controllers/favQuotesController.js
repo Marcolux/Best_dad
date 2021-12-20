@@ -12,7 +12,7 @@ favQuotesController.createQuote = async (req,res)=>{
         })
         
         const quote = await user.createFav_quote({
-            content:req.body.content
+            content:req.body.quote
         }) 
         
       
@@ -46,10 +46,12 @@ favQuotesController.getQuotes = async (req,res)=>{
 favQuotesController.deleteQuotes = async (req,res)=>{
 
     try{
-        const deleteQuotes = await models.fav_quote.destroy({
-            where:{id:req.body.id}
-        })     
-        res.json(deleteQuotes)
+        const quote = await models.fav_quote.findOne({
+            where:{id:req.params.id}
+        })   
+        const removeQuote = await quote.destroy()
+        
+        res.json(removeQuote)
     }
 
     catch(err){

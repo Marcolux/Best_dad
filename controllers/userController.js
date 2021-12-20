@@ -1,17 +1,21 @@
 const models = require('../models')
 
+
+
 const userController = {}
+
+
 
 userController.createUser = async (req,res) =>{
  try{
-     const newUser = await models.user.create({
+     const user = await models.user.create({
          name: req.body.name,
          email:req.body.email,
          password:req.body.password,
          zodiac_sign:req.body.sign
      })
 
-     res.json({newUser})
+     res.json({user})
 
  }
  catch(err){
@@ -61,18 +65,16 @@ userController.verifyUser = async (req, res) => {
 
 userController.updateUser = async (req,res) =>{
     try{
-        const newUser = await models.user.findOne({
+        const user = await models.user.findOne({
             where:{
                 id:req.params.id
             }
 
             
         })
-        
-        const updateUserInfo = await newUser.update({
-            name: req.body.name,
-            zodiac_sign:req.body.zodiac_sign
-            
+
+        const updateUserInfo = await user.update({
+            name:req.body.name
         })
         res.json({updateUserInfo})
    
@@ -83,5 +85,7 @@ userController.updateUser = async (req,res) =>{
     }
    
    }
+
+
 
 module.exports = userController

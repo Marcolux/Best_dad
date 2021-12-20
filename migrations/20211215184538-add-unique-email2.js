@@ -8,7 +8,7 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-     queryInterface.addConstraint('users', {
+     await queryInterface.addConstraint('users', {
       fields: ['email'],
       type: 'unique',
      

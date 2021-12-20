@@ -4,6 +4,6 @@ const favQuotesController = require('../controllers/favQuotesController')
 
 quoteRoutes.post('/:id', favQuotesController.createQuote)
 quoteRoutes.get('/:id', favQuotesController.getQuotes)
-quoteRoutes.delete('/', favQuotesController.deleteQuotes)
+quoteRoutes.delete('/:id', favQuotesController.deleteQuotes)
 
 module.exports = quoteRoutes
