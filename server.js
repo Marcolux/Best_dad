@@ -21,8 +21,8 @@ app.use('/jokes', jokeRoute)
 const quoteRoute = require('./routes/quoteRoute')
 app.use('/quotes',quoteRoute)
 
-const picRoute = require('./routes/pictRoute')
-app.use('/pic',picRoute)
+// const picRoute = require('./routes/pictRoute')
+// app.use('/pic',picRoute)
 
 app.use(express.static(__dirname + '/public'));
 app.use('/uploads', express.static('uploads'));
